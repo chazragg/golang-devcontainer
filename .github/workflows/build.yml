@@ -1,20 +1,17 @@
 name: Build and push images
 
 on: 
-
   push:
-    tags:
-      - 'v*'
     branches:
       - main
 
 jobs:
   build-and-push:
-    runs-on: devcontainer-image-builder-ubuntu
+    runs-on: ubuntu-latest
     steps:
       - name: Pre-build dev container image
         uses: devcontainers/ci@v0.3
         with:
-          imageName: ghcr.io/example/example-devcontainer
-          cacheFrom: ghcr.io/example/example-devcontainer
+          imageName: ghcr.io/chazragg/go-devcontianer
+          cacheFrom: ghcr.io/chazragg/go-devcontianer
           push: always
